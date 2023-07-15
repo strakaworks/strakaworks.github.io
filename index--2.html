@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Change Background While Dragging on iPad</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      const box = document.getElementById('box');
+      let isDragging = false;
+      
+      box.addEventListener('touchstart', (e) => {
+        isDragging = true;
+      });
+      
+      box.addEventListener('touchend', (e) => {
+        isDragging = false;
+      });
+      
+      box.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+          const x = e.touches[0].clientX;
+          const y = e.touches[0].clientY;
+          const color = `rgb(${x % 255}, ${y % 255}, ${(x + y) % 255})`;
+          box.style.backgroundColor = color;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Circle Cursor with Shadows</title>
+  <style>
+    .cursor {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgba(255, 0, 0, 0.5);
+        transition: all 0.3s ease;
+    }
+    .follower {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgba(255, 0, 0, 0.5);
+        transition: all 0.3s ease;
+    }
+</style>
+</head>
+<body>
+  <div id="cursor"></div>
+  
+ <script>
+    // Create an array to hold the follower circles
+    const followers = [];
+
+    // Add the cursor element to the DOM
+    const cursor = document.createElement("div");
+    cursor.classList.add("cursor");
+    document.body.appendChild(cursor);
+
+    // Add the first follower circle to the array
+    followers.push(cursor);
+
+    // Create the rest of the follower circles
+    for (let i = 1; i < 10; i++) {
+        const follower = document.createElement("div");
+        follower.classList.add("follower");
+        follower.style.opacity = `${1 - (i / 10)}`;
+        follower.style.left = `${i * 3}px`;
+        follower.style.top = `${i * 3}px`;
+        followers.push(follower);
+        document.body.appendChild(follower);
+    }
+
+    // Update the position of the follower circles
+    document.addEventListener("mousemove", e => {
+        // Move the first follower circle to the cursor position
+        followers[0].style.left = `${e.clientX - 5}px`;
+        followers[0].style.top = `${e.clientY - 5}px`;
+
+        // Move each subsequent follower circle to the position of the previous follower circle
+        for (let i = 1; i < followers.length; i++) {
+            const prevFollower = followers[i - 1];
+            const follower = followers[i];
+            follower.style.left = prevFollower.style.left;
+            follower.style.top = prevFollower.style.top;
+        }
+    });
+</script>
+</body>
