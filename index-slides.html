@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jakub Straka</title>
+
+	<style type="text/css">
+		body {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			font-family: Helvetica, Arial, sans-serif;
+			font-weight: bold;
+			
+		}
+
+		#overlay {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			z-index: 1000;
+			font-size: 18px;
+		}
+
+		#title {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			z-index: 1000;
+			font-family: Times New Roman, Times, serif;
+			font-weight: normal;
+			font-style: italic;
+			font-size: 18px;
+			letter-spacing: 1px;
+		}
+
+		#wrapper {
+			width: 100%;
+			height: 100vh;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			cursor: ew-resize;
+		}
+
+		#wrapper > * {
+			height: 100vh;
+			display: inline-block;
+		}
+
+		#slideshow {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		.slideshow_image {
+			/*flex: 1;*/
+			/*padding: 60px;*/
+			width: 90vw;
+			height: 85vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-sizing: border-box;
+			overflow: hidden; 
+		}
+
+		.slideshow_image img {
+			max-width: 100%;
+		  max-height: 100%;
+		  object-fit: contain; /* scale the image to fit within the container while maintaining aspect ratio */
+		  object-position: center center; /* center the image horizontally and vertically within the container */
+		}
+
+		.on {
+			display: flex;
+		}
+
+		.off {
+			display: none;
+		}
+
+		#about {
+			position: fixed;
+			top: 30px;
+			left: 10px;
+			font-size: 72px;
+			line-height: 70px;
+			z-index: 1000;
+		}
+
+		#grid {
+			width: 100%;
+			margin-top: 100vh;
+			padding-top: 10%;
+			padding-bottom: 10%;
+			/*display: grid;*/
+			/*grid-template-columns: repeat(9, 1fr);*/
+		}
+
+		.grid_item {
+			display: inline-block;
+			margin: 20px 0;
+			padding: 0;
+			border: 0;
+			cursor: zoom-in;
+		}
+
+		.grid_item img {
+			/*width: 100%;*/
+			height: 100px;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			display: inline-block;
+			/*vertical-align: bottom;*/
+		}
+
+		.grid_item.last {
+			margin-right: 100px;
+		}
+
+		.grid_group {
+			display: inline-block;
+			margin-right: 100px;
+		}
+
+	</style>
+	
+</head>
+<body>
+
+	<div id="about" class="off">
+		Jakub Straka is a photographer and art director at VOGUE CS. Located in Prague, Czech Republic.
+	</div>
+
+
+	<div id="overlay">
+		Jakub Straka, photographer
+	</div>
+
+	<div id="title"></div>
+
+
+	<div id="wrapper">
+	</div>
+
+	<div id="slideshow">
+		<div class="slideshow_image on " data-count="0" data-title="Title of the project 1" data-bg="white"><img src="assets/1.jpg"></div>
+		<div class="slideshow_image off" data-count="1" data-title="Title of the project 2" data-bg="white"><img src="assets/2.jpg"></div>
+		<div class="slideshow_image off" data-count="2" data-title="Title of the project 3" data-bg="white"><img src="assets/3.jpg"></div>
+		<div class="slideshow_image off" data-count="3" data-title="Title of the project 4" data-bg="white"><img src="assets/4.jpg"></div>
+		<div class="slideshow_image off" data-count="4" data-title="Title of the project 5" data-bg="white"><img src="assets/5.jpg"></div>
+		<div class="slideshow_image off" data-count="5" data-title="Title of the project 6" data-bg="white"><img src="assets/6.jpg"></div>
+		<div class="slideshow_image off" data-count="6" data-title="Title of the project 7" data-bg="white"><img src="assets/7.jpg"></div>
+		<div class="slideshow_image off" data-count="7" data-title="Title of the project 8" data-bg="white"><img src="assets/8.jpg"></div>
+		<div class="slideshow_image off" data-count="8" data-title="Title of the project 8" data-bg="white"><img src="assets/9.jpg"></div>
+		<div class="slideshow_image off" data-count="9" data-title="Title of the project 8" data-bg="white"><img src="assets/10.jpg"></div>
+		<div class="slideshow_image off" data-count="10" data-title="Title of the project 8" data-bg="white"><img src="assets/11.jpg"></div>
+		<div class="slideshow_image off" data-count="11" data-title="Title of the project 8" data-bg="white"><img src="assets/12.jpg"></div>
+		<div class="slideshow_image off" data-count="12" data-title="Title of the project 8" data-bg="white"><img src="assets/13.jpg"></div>
+		<div class="slideshow_image off" data-count="13" data-title="Title of the project 8" data-bg="white"><img src="assets/14.jpg"></div>
+		<div class="slideshow_image off" data-count="14" data-title="Title of the project 8" data-bg="white"><img src="assets/15.jpg"></div>
+
+		<div class="slideshow_image off" data-count="15" data-title="Title of the project 8" data-bg="white"><img src="assets/JP-B-komplet-logo.jpg"></div>
+		<div class="slideshow_image off" data-count="16" data-title="Title of the project 8" data-bg="white"><img src="assets/JP-O-komplet-logo.jpg"></div>
+
+<!-- 
+		<div class="slideshow_image off" data-count="14" data-title="Zoltan Toth (2020)" data-bg="white"><img src="assets/zoltan-aneta/JS-zoltan-aneta-1.jpg"></div>
+		<div class="slideshow_image off" data-count="15" data-title="Zoltan Toth (2020)" data-bg="white"><img src="assets/zoltan-aneta/JS-zoltan-aneta-2.jpg"></div>
+		<div class="slideshow_image off" data-count="16" data-title="Zoltan Toth (2020)" data-bg="white"><img src="assets/zoltan-aneta/JS-zoltan-aneta-3.jpg"></div>
+		<div class="slideshow_image off" data-count="17" data-title="Zoltan Toth (2020)" data-bg="white"><img src="assets/zoltan-aneta/JS-zoltan-aneta-4.jpg"></div>
+		<div class="slideshow_image off" data-count="18" data-title="Zoltan Toth (2020)" data-bg="white"><img src="assets/zoltan-aneta/JS-zoltan-aneta-5.jpg"></div>
+		<div class="slideshow_image off" data-count="19" data-title="Zoltan Toth (2020)" data-bg="white"><img src="assets/zoltan-aneta/JS-zoltan-aneta-6.jpg"></div>
+		<div class="slideshow_image off" data-count="20" data-title="Zoltan Toth (2020)" data-bg="white"><img src="assets/zoltan-aneta/JS-zoltan-aneta-7.jpg"></div>
+		<div class="slideshow_image off" data-count="21" data-title="Zoltan Toth (2020)" data-bg="white"><img src="assets/zoltan-aneta/JS-zoltan-aneta-9.jpg"></div>
+
+		<div class="slideshow_image off" data-count="22" data-title="VOGUE CS (03/2021)" data-bg="white"><img src="assets/vogue-hair/JS-vogue-hair-1.jpg"></div> -->
+
+
+	</div>
+
+	<!-- <div id="grid">
+		<div class="grid_item" data-count="0"><img src="assets/1.jpg"></div>
+		<div class="grid_item" data-count="1"><img src="assets/2.jpg"></div>
+		<div class="grid_item" data-count="2"><img src="assets/3.jpg"></div>
+		<div class="grid_item" data-count="3"><img src="assets/4.jpg"></div>
+		<div class="grid_item" data-count="4"><img src="assets/5.jpg"></div>
+		<div class="grid_item" data-count="5"><img src="assets/6.jpg"></div>
+		<div class="grid_item" data-count="6"><img src="assets/7.jpg"></div>
+		<div class="grid_item last" data-count="7"><img src="assets/8.jpg"></div>
+
+		<div class="grid_item"><img src="assets/9.jpg"></div>
+		<div class="grid_item"><img src="assets/10.jpg"></div>
+		<div class="grid_item"><img src="assets/11.jpg"></div>
+		<div class="grid_item"><img src="assets/12.jpg"></div>
+		<div class="grid_item"><img src="assets/13.jpg"></div>
+		<div class="grid_item"><img src="assets/14.jpg"></div>
+		<div class="grid_item last"><img src="assets/15.jpg"></div>
+
+		<div class="grid_item"><img src="assets/zoltan-aneta/JS-zoltan-aneta-1.jpg"></div>
+		<div class="grid_item"><img src="assets/zoltan-aneta/JS-zoltan-aneta-2.jpg"></div>
+		<div class="grid_item"><img src="assets/zoltan-aneta/JS-zoltan-aneta-3.jpg"></div>
+		<div class="grid_item"><img src="assets/zoltan-aneta/JS-zoltan-aneta-4.jpg"></div>
+		<div class="grid_item"><img src="assets/zoltan-aneta/JS-zoltan-aneta-5.jpg"></div>
+		<div class="grid_item"><img src="assets/zoltan-aneta/JS-zoltan-aneta-6.jpg"></div>
+		<div class="grid_item"><img src="assets/zoltan-aneta/JS-zoltan-aneta-7.jpg"></div>
+		<div class="grid_item last"><img src="assets/zoltan-aneta/JS-zoltan-aneta-8.jpg"></div>
+
+		<div class="grid_item last"><img src="assets/vogue-hair/JS-vogue-hair-1.jpg"></div>
+
+
+	</div> -->
+
+
+	<script type="text/javascript">
+		const about = document.getElementById("about")
+		const slideshow = document.getElementById("slideshow")
+		const slides = slideshow.children
+		const slideshowCount = slideshow.children.length
+		const width = 100 / slideshowCount
+		const title = document.getElementById("title")
+		const pos = 0
+    let isDragging = false
+    let canMove = true
+
+
+		// create parts
+		const wrapper = document.getElementById("wrapper")
+		for (let i = 0; i < slideshowCount; i++) {
+			const element = document.createElement('div')
+			element.className = "part part_"+i
+			element.setAttribute('data-count', i)
+     	wrapper.appendChild(element)
+    }
+
+		// set width of parts
+		const parts = wrapper.children
+		for (let i = 0; i < parts.length; i++) {
+    	parts[i].style.width= width+"%"
+    }
+
+    wrapper.addEventListener('touchstart', (event) => {
+      isDragging = true;
+    });
+    
+    wrapper.addEventListener('touchend', (event) => {
+      isDragging = false;
+    });
+
+    wrapper.addEventListener('touchmove', (event) => {
+      if (isDragging) {
+      	const x = event.touches[0].clientX;
+      	console.log(event.touches[0]);
+      	let el = document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY);
+
+        let count = el.getAttribute('data-count')
+			  let slide = slideshow.querySelector('[data-count="'+count+'"]')
+			  let projectTitle = slide.getAttribute('data-title')
+			  let background = slide.getAttribute('data-bg')
+
+			  // set visible image
+			  for (let i = 0; i < slideshowCount; i++) {
+					slides[i].classList.add('off');
+					slides[i].classList.remove('on');
+				}
+			  slide.classList.remove("off")
+			  slide.classList.add("on")
+
+			  // set title
+			 	title.innerHTML = `(${count+1}/${slideshowCount}) ${projectTitle}`
+
+			  // set background
+			  document.body.style.backgroundColor = background
+      }
+    });
+
+    wrapper.addEventListener("click", function( event ) {
+			canMove = true
+			changeCursor('ew-resize');
+
+		}, false);
+
+
+		// let part = document.getElementsByClassName("example");
+		wrapper.addEventListener("mouseover", function( event ) {
+			change(event);
+			canMove = true
+
+
+			// if (canMove) {
+			//   change(event);
+			//  }
+		}, false);
+
+		// show about
+		// document.addEventListener("click", function(){
+		//   about.classList.toggle("off")
+		//   about.classList.toggle("on")
+		// });
+
+		const gridItems = document.querySelectorAll('.grid_item');
+		gridItems.forEach((gridItem) => {
+		  gridItem.addEventListener('click', () => {
+		    const dataCount = gridItem.getAttribute('data-count');
+		    console.log(dataCount);
+
+		    let slide = slideshow.querySelector('[data-count="'+dataCount+'"]');
+		    // set visible image
+			  for (let i = 0; i < slideshowCount; i++) {
+					slides[i].classList.add('off');
+					slides[i].classList.remove('on');
+				}
+			  slide.classList.remove("off");
+			  slide.classList.add("on");
+
+			  scrollToTop();
+			  canMove = false;
+			  changeCursor('pointer');
+
+		  });
+		});
+
+		// functions list
+		function change(event) {
+			let count = event.target.getAttribute('data-count');
+		  let slide = slideshow.querySelector('[data-count="'+count+'"]');
+		  let pos = parseInt(count)+1
+		  let projectTitle = slide.getAttribute('data-title');
+		  let background = slide.getAttribute('data-bg');
+
+		  // set visible image
+		  for (let i = 0; i < slideshowCount; i++) {
+				slides[i].classList.add('off');
+				slides[i].classList.remove('on');
+			}
+		  slide.classList.remove("off");
+		  slide.classList.add("on");
+
+		  // set title
+		  title.innerHTML = `(${pos}/${slideshowCount}) ${projectTitle}`;
+
+		  // set background
+		  document.body.style.backgroundColor = background
+		}
+
+		function changeCursor(c) {
+			wrapper.style.cursor = c;
+		}
+
+		function scrollToTop() {
+		  window.scrollTo({
+		    top: 0,
+		    left: 0,
+		    behavior: 'smooth'
+		  });
+		}
+
+	</script>
+
+</body>
+</html>
