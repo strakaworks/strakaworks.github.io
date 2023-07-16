@@ -95,18 +95,20 @@ li {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   cursor: pointer; /* Cursor on hover */
-  border: 0;
+  border: none;
   background: url('fire.png');
   background-size: cover;
+	box-shadow: none;
 }
 
 .slider::-moz-range-thumb {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
   cursor: pointer; /* Cursor on hover */
-  border: 0;
+  border: none;
   background: url('fire.png');
   background-size: cover;
+	box-shadow: none;
 }
 
 #info-link {
